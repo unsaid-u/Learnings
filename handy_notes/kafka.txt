@@ -1,0 +1,30 @@
+I have a docker compose file
+with docker images of - redis , kafka, postgre, mongodb
+
+- all the dbs can be connected via host, their docker images are running in
+- but how is kafka connected, how do we produce and consume messages in it.
+
+?- check in shatter
+    - docker compose file
+
+-> For producing and consuming messages - you need a topic
+A topic will be inside a server ( broker ), it will have partitions
+    - so you will need a broker
+
+ There are two main approaches to connect your application to a local Docker image of Kafka and produce/consume messages:
+
+ 1. Connecting within the same Docker network:
+
+ Network: When starting your application container, ensure it joins the same Docker network as your Kafka container. This allows them to communicate directly without needing port forwarding.
+ Bootstrap servers: Set your application's bootstrap server list to the internal hostname or IP address of your Kafka container, followed by the port (usually 9092). For example, ["kafka:9092"].
+ Environment variables: You may need to provide additional environment variables to your application's container based on its specific needs. Some common ones include KAFKA_BOOTSTRAP_SERVERS, KAFKA_PRODUCER_CONFIG, and KAFKA_CONSUMER_CONFIG.
+ 2. Connecting from the host machine:
+
+ Port forwarding: Map the Kafka container's port (9092) to a free port on your host machine. This allows your application to connect to the Kafka container from the host's IP address and forwarded port.
+ Bootstrap servers: Set your application's bootstrap server list to the host machine's IP address followed by the mapped port. For example, ["localhost:<mapped_port>"].
+ Environment variables: Similar to the first approach, you may need additional environment variables depending on your application's configuration.
+
+ There will servers in your application which will be mapped to the local running kafka container  
+ ex:   >>> 
+        from kafka import KafkaProducer
+        producer = KafkaProducer(bootstrap_servers=["localhost:9092", "kafka1:9092"])

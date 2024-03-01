@@ -1,0 +1,58 @@
+GRAPHS
+
+- A Graph is a non-linear data structure consisting of vertices and edges. The vertices are sometimes also referred to as nodes and the edges are lines or arcs that connect any two nodes in the graph. More formally a Graph is composed of a set of vertices( V ) and a set of edges( E ). The graph is denoted by G(E, V).
+
+- Traversal techniques
+    - BFS
+    - DFS 
+
+
+- Visited - in graphs it is very important to keep track of all the vertices you have visited.
+- BFS 
+    we traverse the breadth first, all the vertices connected to our current vertice
+    we use a queue data structure
+ >>>   
+    q = Queue()
+    q.push(V);
+    visited[V] = true;
+
+    while (!q.empty()) {	
+        int currentVertex = q.front();
+        q.pop();
+        res.push_back(currentVertex);
+
+        // Enqueue unvisited neighbors
+        for (int neighbor : Graph[currentVertex]) {
+            if (!visited[neighbor]) {
+                q.push(neighbor);
+                visited[neighbor] = true;
+            }
+        }
+    }
+
+    -> queue helps me maintain levels while traversing
+
+- DFS 
+    we traverse the depth first, the last element that is connected to our current vertice. via its connected vertices
+    we use a stack data structure or recursion (recursion stack)
+
+ >>>
+    void traverse(int V, vector<int> graph[], unordered_set<int>& visited, vector<int>& result){
+        if(!V || visited.find(V) != visited.end()){
+            return;
+        }
+        result.push_back(V);
+        visited.insert(V);
+        for(int i =0; i<graph[V].size(); i++){
+            traverse(graph[V][i], graph, visited, result);
+        }
+    }
+
+    vector<int> DFS(int V, vector<int> graph[]){
+        unordered_set<int> visited;
+        vector<int> result ;
+        // V is the starting node - we can start from any node
+        traverse(V, graph, visited, result);
+        return result;
+    }
+

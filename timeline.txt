@@ -1,0 +1,33 @@
+HAPPY CODING 
+
+# Current Topic 
+    * Theory -  Time complexity
+    * Theory - Types of Graphs
+    * Hashing
+    * Code - DFS 
+    * pointers in c++
+
+# Current Data Structure - Graph 
+
+# Current Target 
+    -> learn basics of Graph - Structures and algorithms 
+    -> learn language fundamentals of C++ and JAVA 
+    -> Basic Coding problems on Graph - the ones listed in gfg 
+
+Topics History (Data Structures, Algos , fundamentals etc) 
+* Graphs - Started 
+
+
+-> Regularly add a current topic (Theory + Code)
+-> Maintain a timeline of topics * you can add as descriptively as you want 
+-> Maintain a list of good coding problems * revisit them 
+-> Make a habit solving few coding questions everyday, and learning a Theory topic 
+    * Start with small steps - 1-2 questions , small topics etc 
+-> Also learn language fundamentals of C++ and JAVA 
+-> Let's start with harder topics this time - graphs, tree, DP etc..
+
+# JAVA 
+ learning Java  
+    -> Basic syntax and program structure
+    -> OOP 
+    -> Data structures 

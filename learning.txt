@@ -1,0 +1,16 @@
+
+-> multiset in c++  -- sorted + repeated elements 
+
+-> StringBuilder - mutable alternative to String in Java (string are immutable in Java) 
+
+-> TreeMap - similar to map in c++ 
+
+-> HashMap - non sorted maps , maybe like unordered_map in c++ 
+
+-> ArrayList<type> name  = new ArrayList<>()    - dynamic arrays  in java 
+
+-> set in java - HashSet, TreeSet, LinkedHashSet
+
+->  Set<Integer> bfs = new LinkedHashSet<>();
+        Queue<String> queue = new LinkedList<>();
+

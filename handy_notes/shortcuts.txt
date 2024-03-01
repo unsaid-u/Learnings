@@ -1,0 +1,4 @@
+
+vscode 
+    cmd + K + 0     -- collapse all sections
+    cmd + K + J     -- expand all sections

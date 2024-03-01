@@ -1,0 +1,6 @@
+Colima 
+-> Colima - container runtimes on macOS (and Linux) with minimal setup.
+   Colima runs a VM , which has docker installed inside it, make as easy to run docker commands  
+    - colima start
+    - colima start edit 
+    - colima status 

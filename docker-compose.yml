@@ -1,0 +1,74 @@
+---
+version: '3'
+services:
+  zookeeper:
+    profiles: ["dev"]
+    image: confluentinc/cp-zookeeper:latest
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - 22181:2181
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    profiles: ["dev"]
+    depends_on:
+      - zookeeper
+    ports:
+      - 29092:29092
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+  mongodb:
+    container_name: mongodb
+    image: mongo:latest
+    restart: always
+    profiles: ["dev"]
+    ports:
+      - 27017:27017
+    # environment:
+    #   - MONGO_INITDB_ROOT_USERNAME=fynd
+    #   - MONGO_INITDB_ROOT_PASSWORD=password
+    #   - MONGO_INITDB_DATABASE=inventory
+    volumes:
+      - mongodata:/data/db
+  postgresql:
+    container_name: postgresql
+    image: postgres:latest
+    restart: always
+    profiles: ["dev"]
+    environment:
+      POSTGRES_PASSWORD: my_password
+      POSTGRES_USER: postgres
+    ports:
+      - 54320:5432
+    # volumes:
+    #    - ./data:/var/lib/postgresql/data
+  redis:
+    container_name: redis
+    image: redis:latest
+    profiles: ["dev"]
+    ports:
+      - 6379:6379
+  localstack:
+    container_name: localstack-aws
+    image: localstack/localstack:latest
+    profiles: ["dev2"]
+    environment:
+      - AWS_DEFAULT_REGION=us-east-1
+      - SERVICES=s3
+      - DEBUG=1
+      - DATA_DIR=~/dwlds/localstack/data
+    ports:
+      - '4566:4566'
+      - '4567:8080'
+    volumes:
+      - "~/dwlds/localstack:/tmp/localstack"
+      - "~/dwlds/localstack:/var/run/docker.sock"
+volumes:
+  mongodata:

@@ -1,0 +1,17 @@
+iterm setup - powerlevel10k.zsh-theme
+
+list of extns I use
+1. Aurora X
+2. Ayu
+3. Back and forth
+4. Better comments
+5. Black formatter
+6. Console ninja
+7. learn-preview
+8. Material theme
+9. Material theme icons
+10. Mintlify doc writer 
+11. ReactTree
+12. Prettier
+13. Strike for vscode
+14. vscode-icons

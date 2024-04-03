@@ -1,0 +1,88 @@
+-----------------------------------------------------------------------------------------------------------------
+The efficiency of finding an element depends on the specific operations you're performing and the characteristics of the data structure you're using. Let's compare finding elements in a `Set` versus an array:
+
+### Set:
+
+1. **HashSet:**
+   - **Efficiency:** O(1) on average for basic operations (add, remove, contains).
+   - **Characteristics:** Uses hash codes to achieve constant-time complexity. Best suited for scenarios where you need fast membership tests and don't care about the order of elements.
+
+2. **TreeSet:**
+   - **Efficiency:** O(log n) for basic operations.
+   - **Characteristics:** Maintains elements in sorted order, which makes it suitable when you need ordered access to the elements.
+
+3. **LinkedHashSet:**
+   - **Efficiency:** O(1) for basic operations (add, remove, contains).
+   - **Characteristics:** Maintains the order of insertion, offering constant-time complexity for basic operations.
+
+### Array:
+
+1. **Efficiency:**
+   - **Average Case:** O(n) for linear search in an unsorted array.
+   - **Best Case (sorted array):** O(log n) for binary search.
+   - **Characteristics:** No inherent support for direct containment checks, requires iterating through the array (linear search) or sorted array (binary search).
+
+### Considerations:
+
+- **Uniqueness:**
+  - `Set` guarantees uniqueness. If you only need to check whether an element exists, and uniqueness is important, a `Set` is often more appropriate.
+
+- **Order:**
+  - If the order of elements matters, a `LinkedHashSet` or `TreeSet` may be more suitable.
+
+- **Flexibility:**
+  - If you need frequent insertions, deletions, and efficient containment checks, a `HashSet` or `LinkedHashSet` might be more suitable.
+  
+- **Sorting:**
+  - If elements need to be sorted, a `TreeSet` provides sorted access.
+
+In summary, the choice between a `Set` and an array depends on your specific use case. 
+If you primarily need efficient containment checks and don't care about order, a `HashSet` or `LinkedHashSet` is often more efficient. 
+Arrays may be more suitable if you need to iterate over elements sequentially and don't require constant-time containment checks. 
+If ordering is important, consider a `TreeSet`. Always consider the specific requirements of your application and the characteristics of each data structure.
+
+
+
+Java Compilation
+
+.java file -> compilation -> .class  -> JVM
+                                  Class Loader -> Bytecode verifier -> JIT compiler 
+                                                        |
+                                                        V
+                                                      Bytecode
+
+
+https://g.co/gemini/share/e0702f711448    -- main funciton, objects, class loading 
+
+
+
+Things to learn in JAVA 
+Basic syntax 
+New Java syntax , must know java syntax 
+Spring basics
+Springboot basics 
+Maven
+
+
+
+--------------------------------------------------------------
+
+-> Non static fields cannot be accessed via a static context 
+-> The opposite is not true
+-> static fields can be accessed via a non-static context
+
+---------------------------------------------------------------------
+Amazing use of the Comparator interface in comparing the different objects
+
+ private static Comparator<List<EPermission>> listEPermissionComparator = Comparator
+            .comparingInt((List<EPermission> permissions) -> permissions.size())
+            .thenComparing(list ->
+                    list.stream().map(Enum::name).sorted().collect(Collectors.joining(",")));
+
+    private static Comparator<StoreDTO> storeDTOComparator = Comparator
+        .comparing(StoreDTO::getStoreCode, nullSafeStringComparator)
+        .thenComparing(StoreDTO::getBufferQuantity, nullSafeIntegerComparator)
+        .thenComparing(StoreDTO::getStatus)
+            .thenComparing(StoreDTO::getPermissions,listEPermissionComparator);
+
+

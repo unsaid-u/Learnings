@@ -1,0 +1,18 @@
+this modified binary search returns index which is closet to our target value
+https://leetcode.com/problems/search-insert-position/
+
+while(start < end){
+            int mid = start + (end-start)/2;
+
+            if(nums[mid] == target)
+                return mid;
+            
+            else {
+                if(target > nums[mid])
+                    start = mid+1;
+                else
+                    end= mid;
+            }
+        }
+
+return end;

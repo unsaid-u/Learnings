@@ -83,3 +83,61 @@ for(int i : vertices){
 
 // this is good algo for dependency resolution 
 // can help in scheduling in such cases
+
+
+//   --> Kahn's Algo --- topological sorting using BFS 
+
+    - array of indegree[]    //  num of edges directed in toward a vertex 
+    - start with inserting the element with 0 as indegree in the queue, then decreasing its adjacent vertices indegree by 1
+    - continue this all indegree values in the array are zero
+    - the resulting queue is sorting in topological order 
+
+
+------------------------------------------------------------------------------------------
+
+For cycles in a graph
+
+---> if visited 
+        parent != adjNode   ---> Cycle is present 
+
+    This conditions validates cycle in a graph , can be used with both dfs and bfs 
+
+
+---> Now topological sorting algo can also be used of detecting cycles in a graph
+
+// - DFS 
+ def has_cycle_undirected(graph, node, visited, parent):
+  
+  visited[node] = True
+
+  for neighbor in graph[node]:
+    if not visited[neighbor]:
+      if has_cycle_undirected(graph, neighbor, visited, node):  # Explore unvisited neighbors
+        return True
+    elif neighbor != parent:  # Cycle detected if visited neighbor is not the parent --------         UNDIRECTED GRAPH
+      return True
+
+  return False  
+
+
+def has_cycle_directed(graph, node, visited, recursion_stack):
+  visited[node] = True
+  recursion_stack.append(node)
+
+  for neighbor in graph[node]:
+    if not visited[neighbor]:
+      if has_cycle_directed(graph, neighbor, visited, recursion_stack):
+        return True
+    elif neighbor in recursion_stack:  # Back edge found (cycle detected)    --------         DIRECTED GRAPH
+      return True
+
+  recursion_stack.remove(node)
+  return False
+
+FOR DETECTING CYCLE IN GRAPHS
+we have the following algo
+    - using DFS indirected graph
+    - using BFS indirected graph
+    - using DFS directed graph 
+    - Topological sorting - DFS 
+    - Topological sorting - BFS - kahn's algorithm

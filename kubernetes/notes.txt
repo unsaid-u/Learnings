@@ -1,0 +1,36 @@
+worker:
+  base-url: ${INCREFFEXT_INTERNL_SVC}
+
+Example
+Suppose you have two services in your Kubernetes cluster:
+
+Service A: Provides some API endpoints.
+Service B: Needs to call an API provided by Service A.
+Instead of Service B making an external API call (which might look like https://api.example.com/some-endpoint), Service B will use the internal service URL provided by Kubernetes.
+
+Internal SVC URL
+Service Name: When Service A is deployed, Kubernetes assigns it a service name, for example, service-a.
+Namespace: If Service A is in a specific namespace, say default, the full DNS name for Service A will be service-a.default.svc.cluster.local.
+Port: Kubernetes will expose Service A on a specific port, say 8080.
+So, the internal URL to call Service A from Service B might look like:
+
+bash
+Copy code
+http://service-a.default.svc.cluster.local:8080/some-endpoint
+Example in Your Context
+Here is how you might use this in a script or application code:
+
+sh
+Copy code
+# Environment variable for the internal service URL
+export INCREFFEXT_INTERNL_SVC="http://service-a.default.svc.cluster.local:8080"
+
+# Use this URL to make an API call from within the pod
+curl "${INCREFFEXT_INTERNL_SVC}/some-endpoint"
+In this example, the application or script running in Service B uses the internal service URL (INCREFFEXT_INTERNL_SVC) to call the API endpoint /some-endpoint provided by Service A.
+
+Benefits
+Performance: Reduced latency and faster response times.
+Security: Keeps internal communication within the cluster, reducing exposure to potential external threats.
+Reliability: Internal DNS and service discovery ensure that even if the underlying pod IPs change, the service name remains consistent and reachable.
+Using internal SVC URLs for inter-service communication within a Kubernetes cluster leverages Kubernetes' powerful service discovery and DNS resolution features to create a more efficient, secure, and reliable microservices architecture.

@@ -15,3 +15,7 @@ list of extns I use
 12. Prettier
 13. Strike for vscode
 14. vscode-icons
+
+
+vscode is logged in with my Github -> unsaid-u
+With Settings sync turned on

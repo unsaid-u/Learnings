@@ -73,8 +73,34 @@ Today’s tasks
     * used that cookie for making API calls 
 
 
+→ Took dump from konnectz5 clarks store mongodbs into local running mongo db
+
+    * mongo docker image running on local host 27017
+    * connected to it
+    * exported from z5 db, imported in localdb
+
+
+→ change the extn url to an ngrok url for the running application port 
+→ Replace this in the redis-pool
+This is uselful in creating a redis online key - use this for passing in the cookies 
+This key will be generated when you launch the application 
+
 → Add env vars required for running locally 
 -  SERVER_TYPE etc
+
+→ in your cloud config - make sure ‘ext:’ has correct configuration of a test extension or which ever extn you are using 
+
+→ Either you can reload your project in intelliJ or link ECU in the extension from maven settings 
+
+
+→ Add a user when running locally in auth DB → auth_details
+
+{ "_id" : ObjectId("641c60571c6b4c682a09b89e"), "user_name" : "63f32a9ab69a6c6cc8067d91", "password" : "$2a$10$1eDCW11oZ6aFsELX4zfT5eYbQa/b/nZCTjRJpt2.sWuAAiAuAlKQi", "token" : "USEma/uIkBhpBb1bZpJ2ww==", "role" : "ROLE_COMPANY", "company_id" : NumberInt(123), "created_on" : ISODate("2023-06-23T14:21:11.632+0000"), "modified_on" : ISODate("2023-06-23T14:21:11.632+0000") }
+
+Make sure to have a record with same company in company collection
+
+_id == user_name. // for validating from company collection
+
 
 
 * Artifact hubs are there in java, from which you can import/export dependencies 
@@ -122,7 +148,9 @@ Today’s tasks
 → consumer flow
 → check gcloud access 
 
+→ Maven application - spring boot 
 
+→ spring uses resources defined in main>resources folder, for our extns we have modified it, since we pick our resources from cloud config.
 
 Maven dependency
 parent child maven project- used in extension-common-utility

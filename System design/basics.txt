@@ -1,0 +1,43 @@
+Pillars 
+
+scaling a system 
+* 
+    * Vertical scaling
+    * Preprocessing using cron jobs
+    * Backup servers
+    * Horizontal scaling
+    * Microservices
+    * Distributed Systems
+    * Load Balancing
+    * Decoupling
+    * Logging and metrics calculation
+    * Extensibility
+    * Low-level system design
+* 
+
+(FEX) --- 
+When scaling a system, there are a few key pillars that should be considered. These include:
+
+1. Vertical scaling - This involves adding more resources (CPU, RAM, etc.) to a single server to handle increased load.
+
+2. Preprocessing using cron jobs - This involves automating certain tasks to be performed at scheduled intervals, such as data processing or cleanup, to reduce the load on the system during peak times.
+
+3. Backup servers - Having backup servers ready to handle increased load in case the
+
+4. Horizontal scaling - This involves adding more servers to a system to handle increased load. This can be achieved using techniques like load balancing and microservices.
+
+5. Microservices - Breaking down a monolithic system into smaller, independent services can improve scalability and fault tolerance.
+
+6. Distributed systems - This involves distributing the workload and data across multiple servers to improve performance and scalability.
+
+7. Load balancing - This involves distributing incoming requests evenly across multiple servers to improve performance and prevent overloading a single server.
+
+8. Decoupling - Ensuring that different components of a system are loosely coupled can improve scalability by allowing for individual components to be scaled independently.
+
+9. Logging and metrics calculation - Keeping track of system performance and identifying bottlenecks is crucial for maintaining and improving scalability.
+
+10. Extensibility - Designing a system with the ability to add new features and functionalities without major changes can improve long-term scalability.
+
+11. Low-level system design - Carefully designing the architecture and infrastructure of a system to handle increased load and maintain performance is crucial for scalability.
+
+Overall, effective scaling requires a combination of these approaches, as well as continuous monitoring and fine-tuning to ensure the system can handle increased load and maintain performance.

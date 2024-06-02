@@ -62,3 +62,27 @@ New Java syntax , must know java syntax
 Spring basics
 Springboot basics 
 Maven
+
+
+
+--------------------------------------------------------------
+
+-> Non static fields cannot be accessed via a static context 
+-> The opposite is not true
+-> static fields can be accessed via a non-static context
+
+---------------------------------------------------------------------
+Amazing use of the Comparator interface in comparing the different objects
+
+ private static Comparator<List<EPermission>> listEPermissionComparator = Comparator
+            .comparingInt((List<EPermission> permissions) -> permissions.size())
+            .thenComparing(list ->
+                    list.stream().map(Enum::name).sorted().collect(Collectors.joining(",")));
+
+    private static Comparator<StoreDTO> storeDTOComparator = Comparator
+        .comparing(StoreDTO::getStoreCode, nullSafeStringComparator)
+        .thenComparing(StoreDTO::getBufferQuantity, nullSafeIntegerComparator)
+        .thenComparing(StoreDTO::getStatus)
+            .thenComparing(StoreDTO::getPermissions,listEPermissionComparator);
+
+

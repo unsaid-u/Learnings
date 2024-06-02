@@ -1,0 +1,114 @@
+1.
+Generative AI - Eng
+Proficiency in using ChatGPT in their day-to-day work.
+
+Rating:
+
+5
+I regularly use chatGPT, bard and other generative AI tools for helping me with my day to day work. I use it for giving answers to queries and confusions, automating repetitive tasks. I use it for verifying my code, helping me in improving the efficiency and opitmization, alternative solutions etc. Also will be using the new Fex Copilot vscode extension, for improving my developer productivity.
+Add Attachment
+No file chosen
+2.
+Coding Skills
+Able to write reliable, scalable and maintainable code with proper error handling, organize code files better way with documentation
+
+Rating:
+
+4
+I possess proficiency in crafting reliable, scalable, and maintainable code, emphasizing robust error handling. I structure code files systematically for enhanced organization and provide comprehensive documentation, ensuring clarity and ease of maintenance.
+I also try to include comments explaining complex logics and usecases, also use comments for organizing my structure.
+Add Attachment
+No file chosen
+3.
+Data Structures
+Knowledge of data structure and solve problem with efficient DB schema and query and caching structure
+
+Rating:
+
+5
+I possess good knowledge of Data structures, ranging from the basics of array, maps to complexities of stack, trees and graphs. I have knowledge of DBs  used for organizing structured and unstructured data both, SQL and noSQL dbs. Caching is an important concept helpful in increasing efficiency and optimization, have implmented Redis a number of times according to different usecasese.
+Add Attachment
+No file chosen
+4.
+Effective Communication - Eng
+Able to understand and communicate thoughts/design/ideas/specs in a unambiguous manner and adjusts communication as per the context
+
+Rating:
+
+5
+I excel in clear and unambiguous communication, effortlessly conveying thoughts, designs, ideas, and specifications. My communication style is adaptable, adjusting to the context to ensure effective understanding and collaboration. Working in a multilingual environment it is important to have a common mode of communication, thus my fluency in English helps me in getting it through.
+Add Attachment
+No file chosen
+5.
+Domain knowledge - Eng
+Deep domain knowledge and the ability to make informed decisions with standard terms, protocols related to the domain.
+
+Rating:
+
+4
+Our company works in an omnichannel ecommerce domain, this is my first time working in this domain. So far I have learned a lot of new things related to order processing, third party integrations, aggregator platforms, delivery partners, sales, invoicing etc. This has been a complete experience for me. I possess a strong domain knowledge in engineering, leveraging a deep understanding of industry-specific concepts, trends, and technologies.
+Add Attachment
+No file chosen
+6.
+Learning Skills - Eng
+Proactively seeks opportunities for learning and skill improvement. Can quickly learn and apply new concepts.
+
+Rating:
+
+5
+My commitment to continuous learning enables me to adapt rapidly and contribute effectively in dynamic environments. Throughout my tenure so far, i have learned three different programming languages ( Python, Javascript, Java), learned different frameworks (Sanic, Vue, Springboot etc). Worked with various dbs (PostgreSQL, MySQL, mongodb, Redis). etc. I have tried to learn new things in both and frontend and backend technologies. Also have learned technologies and tools required in deployment and delivery of code (Git, Docker, Kubernetes etc).  I have a habit of reading articles based on developer productivity, optimisation techniques etc. I proactively pursue learning opportunities and skill enhancement, demonstrating a swift ability to grasp and apply new concepts.
+Add Attachment
+No file chosen
+7.
+Effective Team Collaboration - Eng
+Strong collaboration skills and mentor team members, and resolve conflicts effectively.
+
+Rating:
+
+5
+In team settings, I excel in fostering a collaborative atmosphere by actively mentoring team members. I understand the importance of effective communication and work towards creating an environment where ideas are openly exchanged. When conflicts arise, I address them promptly, focusing on finding constructive solutions that benefit the team as a whole. My commitment to strong collaboration is not just about individual success but ensuring the collective progress and cohesion of the team, creating a conducive space for innovation and shared accomplishments.
+Add Attachment
+No file chosen
+8.
+Test Driven Development
+Proficient in TDD, writes comprehensive test suites, and understands the importance of test coverage.
+
+Rating:
+
+4
+I have written unit tests in hogwarts microservice. Every feature deployment was covered with a corressponding successful test case, It is part of development process. I have also had some contribution in writing automation test cases. I ensure that my testing approach is thorough, validating code functionality and promoting robust, error-resistant software development. I understand the importance of writing tests and how they help in finding any bugs and edge cases.
+Add Attachment
+No file chosen
+9.
+Attention to Detail-Engg
+Ensure features are implemented inline with design, end to end deliverable mindset, long term vision, etc
+
+Rating:
+
+5
+In my engineering work, I pay meticulous attention to detail, ensuring that the implementation of features aligns seamlessly with the designed specifications. I adopt an end-to-end deliverable mindset, meaning my focus extends beyond immediate functionality to consider the overall project goals and long-term vision. This approach ensures that each component and feature not only meets current requirements but also contributes cohesively to the project's broader objectives, fostering a more robust and sustainable outcome.
+Add Attachment
+No file chosen
+10.
+Documentation - Eng
+Ensure documentation for features, API, systems, and code commenting are up to date
+
+Rating:
+
+5
+I prioritize maintaining up-to-date documentation for features, APIs, systems, and code comments in my engineering work. I have made impact analysis documents, mapping documents, task tracking documents etc. I also try to include comments explaining complex logics and usecases, also use comments for organizing my structure. Some handy links.
+https://gofynd.quip.com/ViAPOdbKZrBB/OMS
+https://docs.google.com/spreadsheets/d/1G3uvt1yrMts4uxdl_4gNkVcYG-9VBk5xxwTcR7t8FkM/edit#gid=637850030
+This commitment ensures that comprehensive and accurate information is readily available, facilitating understanding, collaboration, and seamless transitions for the team and stakeholders.
+Add Attachment
+No file chosen
+11.
+Tools Proficiency - Eng
+Proficiency in understanding application deployment and debugging deployment failures. Understanding FIK, Kubernetes, docker, cloud engineering services like Kubernetes Engine, SQL, Load Balancer, Logs Explorer, IDE(code editor) etc.
+
+Rating:
+
+5
+I am proficient in various tools. My expertise extends to various tools, including but not limited to FIK, Kubernetes, Docker. For maintaining Dbs i have various tools installed in my system, I have a customised terminal with customised commands for helping me smoothen my coding process. I have various extensions installed in IDEs, which contribute in my developer productivity as well as increasing code optimisation and efficiency.
+Add Attachment
+No file chosen

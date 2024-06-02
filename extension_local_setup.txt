@@ -1,0 +1,150 @@
+Extension local setup 
+
+Java tech stack
+
+
+Java8
+IntelliJ
+Maven - dependency manager
+Springboot - backend framework 
+Extension common utility
+
+
+Learn the basics 
+→ How does Java compiles code , basic Java components 
+→ Springboot - basics 
+→ maven - what is maven, why do I need it, comparison with other langs 
+→ Up the backend application locally , and hit the API with a localhost 
+
+
+Today’s tasks 
+
+* locally up the application - rblposdta 
+    * Edit CustomHeaderService
+* Maven - understanding and setup 
+    * Common commands
+    * Maven central repository
+    * pom files 
+* Code walk through 
+    * Run aggregator apis 
+* Java basics 
+    * Packages, classes
+    * Revise OOP concepts - with Java
+    * final , static 
+* Springboot basics. 
+    * Writing endpoints
+* IntelliJ basics - profiles etc 
+* Understand how java compiles code
+* Setup colima
+    * Docker compose - setup images and container 
+* Jira tickets - of your upcoming/ongoing tasks 
+
+
+
+
+* Open jdk 17 - installed from brew - setted a symlink to Library/Java/JavaVirtualMachine directory
+* Installed openjdk 19 inside - Library/Java/JavaVirtualMachines 
+    * This is path is where the machine looks for installed jdks, try installing new versions here, or atleast create a symlink to this path 
+
+
+
+* Creating local profile for running the application 
+
+--add-exports=java.base/sun.nio.ch=ALL-UNNAMED
+--add-opens=java.base/java.lang=ALL-UNNAMED
+--add-opens=java.base/java.lang.reflect=ALL-UNNAMED
+--add-opens=java.base/java.io=ALL-UNNAMED
+--add-exports=jdk.unsupported/sun.misc=ALL-UNNAMED
+-Dspring.profiles.active=ashraf
+
+
+→ profile_name = Utkarsh - make your own ECU file 
+
+*  make an interface config file with your name 
+    * clarks-store-utz5
+    * Add local dbs, running in docker to this file 
+
+
+→ For extension local setup
+
+* created ngrok url of the extn
+* was running with the x5 mongoDB so updated that
+* on installation, cookie is saved in redis - which is used for creating fdk session
+    * used that cookie for making API calls 
+
+
+→ Add env vars required for running locally 
+-  SERVER_TYPE etc
+
+
+* Artifact hubs are there in java, from which you can import/export dependencies 
+    * Extension common utility library is deployed in artifact hub 
+* Settings.xml - config provided to maven , for example for providing paths downloading repos 
+    
+* Upgrade jdk version to 19 
+* mvn clean install — just like npm i
+* Mvn was taking jdk21 
+    * Added JAVA_HOME var with jdk19 
+    * Added it to $PATH 
+
+
+
+
+* Extension common Utility - is used by extns, for that to run locally, we build it (create its jar) which is saved locally , local repository (.m2/repository)
+    
+* Java is platform independant language, with the implementation of jar
+    * It compiles code into jar files,
+        * So since ECU is our user defined lib, we need a local jar for that.
+        * Just like node modules, they are also saved locally.
+
+
+
+* https://stackoverflow.com/questions/46770900/how-to-change-the-project-in-gcp-using-cli-commands
+    * The project requires gcloud storage - 
+        * From gcloud cli , added 
+            * gcloud config set project 309208498515    set project to konnect-non-prod 
+            * GET https://storage.googleapis.com/storage/v1/b/supply-rti-extension-konnectz0/iam
+            * Need access in the google project - konnect-non-prod
+                * Got access , still need Iam policy permission, getting error 403 forbidden in Iam call
+                * Bypassed that call for now, commented code in ECU in 
+
+
+
+
+* docker-compose up
+    * was running  docker compose up 
+    * this getting error, since this command is deprecated
+    * docker-compose —profile dev up    we can use this
+        * added this in the $PATH 
+        * export PATH=$PATH:/opt/homebrew/Cellar
+
+
+→ consumer flow
+→ check gcloud access 
+
+
+
+Maven dependency
+parent child maven project- used in extension-common-utility
+ngrok
+mongoDB 
+jackson
+spring-data-mongodb
+junit- for test cases
+spring-boot-starter-data-redis
+
+
+
+New Learnings
+
+* @Repository
+    public interface CompanyRepository extends MongoRepository<Company, String> {
+        Optional<Company> findByUid(Integer uid);
+
+
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+Spring provides a MongoRepository to connect to mongo collections and easily read data 
+The syntax is findBy......key_name
+ex: findByUid 

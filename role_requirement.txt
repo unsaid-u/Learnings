@@ -1,0 +1,36 @@
+Role requirement
+
+Technical requirement - 
+	software fundamentals 
+		- programming fundamentals
+		- language 
+		- DB 
+		- networking 
+		- web development fundamentals
+		- and other utilities
+
+Non technical requirements - 
+	soft skill
+		- discipline
+		- consistency
+		- ownership
+		- work-ethic etc….
+
+
+
+
+	Rate yourself - (7 Jun, 2023)
+Write Code - 2
+Read Code - 2
+Deploy Code - 2
+Test Code - 1
+Maintain Code - 
+Share Code - 1
+Solve with code / convert English to code - 2
+
+
+Communication
+Domain knowledge
+Documentation
+Presentation
+Work ethic

@@ -1,0 +1,15 @@
+Important Concepts
+1. Scalability
+2. Performance
+3. Latency and Throughput
+4. Consistency
+5. Availability
+6. Partition Tolerance
+7. CAP Theorem
+8. Domain Name System
+9. Content Delivery Network
+10. Load Balancers and Reverse Proxy
+11. Microservices
+12. Databases
+13. Caching
+14. Message Queues

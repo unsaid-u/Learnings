@@ -1,0 +1,21 @@
+Proxy servers act as intermediaries between clients and servers, facilitating or controlling access to resources. 
+There are two primary types of proxy servers: forward proxies and reverse proxies. 
+
+
+- A forward proxy acts on behalf of the client, retrieving data from the internet and delivering it to the client. It hides the client’s IP address from the server.
+     A forward proxy caches frequently accessed web pages. When a user requests a cached page, the proxy serves it without fetching it from the web server again.
+
+
+- A reverse proxy acts on behalf of the server, intercepting requests from clients and forwarding them to the appropriate backend server. It hides the server's details from the client.
+    load balancing
+    Security
+    SSL Termination
+    Caching and Compression
+
+    - if the reverse proxy fails it can be a single point of failure
+
+Example - 
+Nginx
+    Description: A high-performance web server and reverse proxy server.
+    Use Cases: Load balancing, SSL termination, serving static content, caching.
+

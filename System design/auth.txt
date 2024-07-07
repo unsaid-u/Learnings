@@ -1,0 +1,33 @@
+Stateless Auth - JWT , OAuth
+Stateful Auth - Sessions , cookies
+
+
+Statful - sessions 
+    - /login -> username, password ---> DB 
+    - DB -> after matching -> return session_id 
+            - save this session_id in redis (n-memory database)
+    - session_id --> return to client -> will be used for api auth (x-session-id)
+    - so this session_id has a an expiration time and is revoked after logout
+
+    Pros:
+        - short term Auth (ex: banking website)
+        - controlled access 
+    Cons:
+        - memory dependent - difficult scalability
+        - Server storage dependent
+        - memory can be a point a failure
+
+
+Stateless - JWT 
+    - /login -> username, password ---> DB 
+    - DB -> after match -> payload to be signed  -> sign(payload + secret_key) ---> signature
+    - server returns a signed JOSN payload to client (aka access token) with a shorter expiration time
+    - on request from client server verifies signature with its key 
+
+    Pros:
+        - memory efficient
+        - longer session duration
+
+    Cons:
+        - difficult to manage 
+        - less secure ?

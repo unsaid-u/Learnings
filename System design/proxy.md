@@ -76,3 +76,6 @@ Imagine a microservice architecture for an e-commerce application:
 - **Load Balancer (e.g., HAProxy)** distributes requests among multiple instances of each microservice, ensuring that no single instance becomes a bottleneck and enhancing fault tolerance.
 
 By combining reverse proxies and load balancers, you can achieve a robust, scalable, and secure microservice architecture.
+
+
+[Link to a medium article](https://medium.com/codenx/load-balancer-vs-reverse-proxy-vs-api-gateway-fcb79912abbf)

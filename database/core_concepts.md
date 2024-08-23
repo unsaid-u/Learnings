@@ -1,0 +1,3 @@
+Normalisation
+Transaction and Concurrency
+Indexing 

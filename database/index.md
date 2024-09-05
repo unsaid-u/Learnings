@@ -106,3 +106,67 @@ Consider a table `employees` with columns `employee_id`, `first_name`, `last_nam
   - **Index:** A composite index on `department_id` and `salary` (`CREATE INDEX idx_dept_salary ON employees(department_id, salary DESC);`) will optimize both the filtering and sorting operations.
 
 In summary, indexing is a crucial aspect of database design and query optimization. By carefully selecting which columns to index and understanding your query patterns, you can significantly improve the performance and efficiency of your database.
+
+___
+
+In SQL databases, indexes are used to speed up the retrieval of data by providing quick access to rows in a table. There are two primary types of indexes: **Clustered** and **Non-Clustered**. Understanding the differences between them is crucial for database design and performance optimization.
+
+### Clustered Index
+
+- **Definition**: A clustered index determines the physical order of data in the table. Essentially, it sorts and stores the data rows of the table based on the index key. Because of this, a table can have only one clustered index since the data rows can only be sorted in one way.
+
+- **Characteristics**:
+  - The table itself is organized around the clustered index. The index and the table data are stored together.
+  - When you create a clustered index, the rows in the table are sorted according to the index.
+  - Fast retrieval of data when the search involves the columns included in the clustered index, because the data is physically stored in order.
+  - Suitable for range queries (e.g., finding records between certain dates).
+
+- **Example**: A primary key constraint automatically creates a clustered index. If you create a table with a primary key, the primary key column is by default a clustered index.
+  ```sql
+  CREATE TABLE Employees (
+      EmployeeID INT PRIMARY KEY, -- This creates a clustered index on EmployeeID
+      Name VARCHAR(100),
+      DepartmentID INT
+  );
+  ```
+
+### Non-Clustered Index
+
+- **Definition**: A non-clustered index creates a separate structure from the table data, which contains pointers (or references) to the location of the actual data rows. It does not affect the physical order of data in the table.
+
+- **Characteristics**:
+  - A table can have multiple non-clustered indexes.
+  - The index stores a sorted list of values for the specified columns, along with pointers to the corresponding rows in the table.
+  - Non-clustered indexes are useful for queries that filter on columns not included in the clustered index, and for quickly locating rows without scanning the entire table.
+  - Non-clustered indexes can improve performance for lookups, but might require additional space to store pointers.
+
+- **Example**: Creating a non-clustered index on the `Name` column of the `Employees` table.
+  ```sql
+  CREATE NONCLUSTERED INDEX idx_EmployeeName
+  ON Employees(Name);
+  ```
+
+### Key Differences
+
+1. **Physical vs. Logical Sorting**:
+   - **Clustered Index**: Physically arranges and sorts the table data based on the indexed column(s).
+   - **Non-Clustered Index**: Maintains a logical order for the indexed column(s) and includes pointers to the actual data rows.
+
+2. **Number per Table**:
+   - **Clustered Index**: Only one per table, as it defines the physical layout.
+   - **Non-Clustered Index**: Multiple non-clustered indexes can be created per table.
+
+3. **Storage**:
+   - **Clustered Index**: The data rows are stored directly in the order of the clustered index.
+   - **Non-Clustered Index**: The index and the data rows are stored separately; the index contains pointers to the actual data locations.
+
+4. **Use Cases**:
+   - **Clustered Index**: Ideal for columns frequently used in range queries or where data is often retrieved in sorted order.
+   - **Non-Clustered Index**: Ideal for columns used in search queries or frequently joined columns, not necessarily involving sorting.
+
+### Summary
+
+- Use a **Clustered Index** when you need data to be physically sorted for performance, such as for primary keys or frequently searched columns that benefit from sorting.
+- Use a **Non-Clustered Index** when you need to quickly find data based on a specific column or set of columns without requiring the physical order to be changed.
+
+Choosing the correct type of index depends on the specific use cases and query patterns of your database, and both types of indexes can be used effectively to improve query performance.

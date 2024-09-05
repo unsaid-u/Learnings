@@ -229,3 +229,203 @@ Imagine an e-commerce platform where the order details need to be fetched freque
 - **Normalization** is essential for maintaining data integrity and minimizing redundancy, making it ideal for transactional systems with frequent updates.
 - **Denormalization** is useful for improving read performance in scenarios where reading data is more common than writing, such as in reporting or read-heavy applications. The trade-off is increased complexity in maintaining data consistency.
 - The decision to normalize or denormalize depends on the specific use case, data access patterns, and performance requirements. Both approaches have their place in database design and should be evaluated carefully when designing a database schema.
+
+
+___
+
+### SQL Commands: DDL, DML, DCL, TCL, and DQL
+
+In SQL (Structured Query Language), commands are classified into different types based on their purpose and functionality. These types are:
+
+1. **DDL (Data Definition Language)**
+2. **DML (Data Manipulation Language)**
+3. **DCL (Data Control Language)**
+4. **TCL (Transaction Control Language)**
+5. **DQL (Data Query Language)**
+
+Each type is used to interact with the database in different ways, such as defining the structure of the database, manipulating data within it, controlling access, and more.
+
+---
+
+### 1. **DDL (Data Definition Language)**
+
+DDL commands are used to **define** and **modify** the structure of a database (tables, schemas, indices, etc.). DDL statements generally **do not manipulate data** but instead work with the schema or metadata of the database.
+
+Some key **DDL commands**:
+
+- **`CREATE`**: Creates objects in the database, such as tables, views, schemas, or indices.
+  
+    ```sql
+    CREATE TABLE Employees (
+      EmployeeID INT PRIMARY KEY,
+      Name VARCHAR(50),
+      Age INT,
+      Department VARCHAR(50)
+    );
+    ```
+
+- **`ALTER`**: Alters the structure of an existing object (like adding, modifying, or dropping columns from a table).
+  
+    ```sql
+    ALTER TABLE Employees
+    ADD Email VARCHAR(100);
+    ```
+
+- **`DROP`**: Deletes an object (like a table or view) from the database.
+
+    ```sql
+    DROP TABLE Employees;
+    ```
+
+- **`TRUNCATE`**: Removes all records from a table, but the table itself remains.
+  
+    ```sql
+    TRUNCATE TABLE Employees;
+    ```
+
+---
+
+### 2. **DML (Data Manipulation Language)**
+
+DML commands are used to **manipulate data** in the database. These commands operate on the data stored in tables, allowing you to insert, update, delete, and retrieve data.
+
+Some key **DML commands**:
+
+- **`INSERT`**: Adds new records to a table.
+
+    ```sql
+    INSERT INTO Employees (EmployeeID, Name, Age, Department)
+    VALUES (1, 'John', 30, 'HR');
+    ```
+
+- **`UPDATE`**: Modifies existing data in a table.
+  
+    ```sql
+    UPDATE Employees
+    SET Age = 31
+    WHERE EmployeeID = 1;
+    ```
+
+- **`DELETE`**: Deletes records from a table.
+
+    ```sql
+    DELETE FROM Employees
+    WHERE EmployeeID = 1;
+    ```
+
+---
+
+### 3. **DCL (Data Control Language)**
+
+DCL commands are used to **control access** to the data and the database. These commands manage permissions and enforce security by granting or revoking privileges to users.
+
+Some key **DCL commands**:
+
+- **`GRANT`**: Gives specific privileges to users or roles.
+  
+    ```sql
+    GRANT SELECT, INSERT ON Employees TO 'username';
+    ```
+
+- **`REVOKE`**: Removes privileges from users or roles.
+  
+    ```sql
+    REVOKE SELECT, INSERT ON Employees FROM 'username';
+    ```
+
+---
+
+### 4. **TCL (Transaction Control Language)**
+
+TCL commands are used to **manage transactions** in the database. A transaction is a group of SQL commands that are executed together as a single unit. TCL commands allow you to control whether the transaction is completed (committed) or undone (rolled back).
+
+Some key **TCL commands**:
+
+- **`COMMIT`**: Saves the changes made in the transaction permanently to the database.
+  
+    ```sql
+    COMMIT;
+    ```
+
+- **`ROLLBACK`**: Undoes the changes made in the current transaction.
+  
+    ```sql
+    ROLLBACK;
+    ```
+
+- **`SAVEPOINT`**: Sets a point within a transaction to which you can later roll back.
+
+    ```sql
+    SAVEPOINT savepoint_name;
+    ```
+
+- **`RELEASE SAVEPOINT`**: Deletes a previously set savepoint, but does not affect the transaction itself.
+
+    ```sql
+    RELEASE SAVEPOINT savepoint_name;
+    ```
+
+---
+
+### 5. **DQL (Data Query Language)**
+
+DQL is used to **retrieve data** from the database. Although **`SELECT`** is often included under DML, it's also frequently categorized as a separate DQL since its purpose is to **query** data rather than modify it.
+
+Key **DQL command**:
+
+- **`SELECT`**: Fetches data from the database based on given conditions.
+
+    ```sql
+    SELECT Name, Age
+    FROM Employees
+    WHERE Department = 'HR';
+    ```
+
+---
+
+### **Normalization vs. Denormalization in Context of Read-Heavy Systems**
+
+1. **Normalization**:
+    - **Normalization** is a database design technique that organizes tables to reduce data redundancy and improve data integrity. It involves breaking down larger tables into smaller, related tables and establishing relationships between them.
+    - This process follows normal forms (1NF, 2NF, 3NF, etc.), and its goal is to minimize duplication of data and avoid anomalies in data operations (inserts, updates, deletes).
+
+    **Example of Normalization**:
+    - Suppose we have a table combining employees and departments:
+      
+      | EmployeeID | EmployeeName | DepartmentID | DepartmentName |
+      |------------|--------------|--------------|----------------|
+      | 1          | John          | 101          | HR             |
+      | 2          | Alice         | 102          | IT             |
+
+      In normalization, we split this into two tables:
+      
+      **Employees**:
+      | EmployeeID | EmployeeName | DepartmentID |
+      |------------|--------------|--------------|
+      | 1          | John          | 101          |
+      | 2          | Alice         | 102          |
+
+      **Departments**:
+      | DepartmentID | DepartmentName |
+      |--------------|----------------|
+      | 101          | HR             |
+      | 102          | IT             |
+
+2. **Denormalization**:
+    - **Denormalization** is the process of merging tables to **reduce the number of joins**, often to improve **query performance** in read-heavy systems.
+    - In read-heavy systems, where data is accessed more frequently than it is updated, joins can become expensive in terms of performance, so denormalizing (i.e., intentionally introducing some data redundancy) can help improve **query speed**.
+
+    **Example of Denormalization**:
+    - In a denormalized design, you might merge the **Employees** and **Departments** tables back into one larger table, so the system doesn't have to perform a `JOIN` operation every time it needs to retrieve department names along with employee data.
+  
+    **Consideration for Denormalization in Read-Heavy Systems**:
+    - **Read-heavy systems** are those where the frequency of reading data is much higher than updating it (e.g., reporting systems, search systems).
+    - In such cases, **denormalization** can help optimize performance by reducing complex `JOIN` operations, which can slow down queries. However, denormalization comes with a trade-off: data redundancy increases, and maintaining data consistency can become more challenging during updates.
+
+---
+
+### Key Points:
+- **Normalization** is about reducing redundancy and improving data integrity but can lead to complex joins and slower read performance.
+- **Denormalization** introduces redundancy for the sake of **improving query performance** in read-heavy systems, at the cost of more challenging data updates.
+
+In the context of **read-heavy systems**, **denormalization** can make sense because the performance boost in querying outweighs the potential drawbacks of maintaining duplicate data.

@@ -123,3 +123,7 @@ In this example:
 - **JWT Verification**: The server verifies a JWT using its signature and does not need to store tokens.
 - **Stateless**: JWTs are stateless and self-contained.
 - **Best Practices**: Secure your secret key, use HTTPS, handle token expiry, and validate claims. Consider implementing refresh tokens and handling revocation appropriately.
+
+
+You have used Firebase - what it is 
+- i think it implements OAuth2 - session based auth ???? 

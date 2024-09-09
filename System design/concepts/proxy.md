@@ -85,6 +85,12 @@ Imagine a microservice architecture for an e-commerce application:
 By combining reverse proxies and load balancers, you can achieve a robust, scalable, and secure microservice architecture.
 
 
+##### Are API Gateways Publicly Exposed?
+Yes, API Gateways are often publicly exposed. An API Gateway typically sits at the edge of your system, accepting incoming traffic from external clients and routing it to the appropriate backend services.
+It acts as the entry point for all client requests and ensures secure and efficient routing of traffic.
+You can configure the API Gateway with SSL certificates, authentication, and authorization mechanisms to ensure that it’s exposed securely.
+<!-- I think that's why a reverse proxy will be benefical -->
+
 ##### Example scenario elaborated 
 ##### Scenario Involving an API Gateway, Reverse Proxy, and Load Balancer
 
@@ -249,5 +255,18 @@ You’re absolutely right—while using an API Gateway, Load Balancer, and Rever
 
 By implementing these strategies, you can ensure that your architecture is resilient, scalable, and capable of handling failures gracefully. This way, even if one component goes down, your system can continue to operate, maintaining service availability and minimizing impact on users.
 
+___
+
+Some common Ingress Controllers used in Kubernetes are:
+
+1. NGINX Ingress Controller
+Description: One of the most popular Ingress controllers, maintained by the Kubernetes community. It provides robust routing, SSL termination, and path-based routing.
+Use Case: Suitable for most common use cases, where you need basic routing, SSL, and load balancing for HTTP/HTTPS traffic.
+
 
 [Link to a medium article](https://medium.com/codenx/load-balancer-vs-reverse-proxy-vs-api-gateway-fcb79912abbf)
+
+[Follow this youtube video - it explains ingress](https://www.youtube.com/watch?v=UX11tVIkYUg)!
+
+![API gatway flow](<../../flow dialgrams/api_gateway.png>)
+![Ingress flow](<../../flow dialgrams/ingress-flow.png>)

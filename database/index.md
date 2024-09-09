@@ -170,3 +170,21 @@ In SQL databases, indexes are used to speed up the retrieval of data by providin
 - Use a **Non-Clustered Index** when you need to quickly find data based on a specific column or set of columns without requiring the physical order to be changed.
 
 Choosing the correct type of index depends on the specific use cases and query patterns of your database, and both types of indexes can be used effectively to improve query performance.
+
+
+___
+
+Index - data structures 
+   - usually b-tree/ b+tree, hashtables 
+   - primary index - made on primary key - already present in most dbs
+   - secondary index - can be made on non-primary key columns to speed up search
+      - Single Field Index: Created on one field.
+      - Compound Index: Created on multiple fields (used for multi-field queries).
+
+
+**Limitations in MongoDB**
+- Index Size: Indexes must fit in RAM to be efficient. If the index size exceeds available memory, MongoDB performance may degrade as it will have to read indexes from disk.
+- Index Overhead: Indexes add storage overhead. More indexes mean more disk usage and slower writes due to the need to maintain the indexes.
+- Write Latency: For every write operation (inserts, updates, deletes), MongoDB must update all relevant indexes, which can introduce write latency.
+- Inefficient for High Cardinality Queries: If the indexed field has high cardinality (many distinct values), performance may degrade as MongoDB has to traverse a large index.
+- Single Field Index for Sharding: Only one index can be used as the shard key, limiting the flexibility of how data is partitioned across multiple nodes

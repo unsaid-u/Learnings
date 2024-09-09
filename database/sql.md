@@ -429,3 +429,106 @@ Key **DQL command**:
 - **Denormalization** introduces redundancy for the sake of **improving query performance** in read-heavy systems, at the cost of more challenging data updates.
 
 In the context of **read-heavy systems**, **denormalization** can make sense because the performance boost in querying outweighs the potential drawbacks of maintaining duplicate data.
+
+___
+
+SELECT upper(FIRST_NAME) as STUDENT_NAME from Student;
+
+SELECT DISTINCT MAJOR from STUDENT;    --- unique values of a column
+
+
+SELECT SUBSTRING(FIRST_NAME, 1, 3)  FROM Student;       --- substring 
+SELECT CONCAT(FIRST_NAME, ' ', LAST_NAME) AS COMPLETE_NAME FROM Student;
+SELECT REPLACE(FIRST_NAME, 'a', 'A') FROM Student;
+
+
+
+SELECT MAJOR,LENGTH(MAJOR) FROM Student GROUP BY(MAJOR);                                                         
+or                                                                                                                                                                                                                 
+SELECT DISTINCT MAJOR, LENGTH(MAJOR) FROM Student;
+
+SELECT * FROM Student ORDER BY FIRST_NAME , MAJOR DESC;
+
+
+SELECT * from Student WHERE FIRST_NAME IN ('Prem' , 'Shivansh');
+                                    NOT IN
+
+
+SELECT * FROM Student WHERE FIRST_NAME LIKE '%a';           ---- ends with 'a', starts with 'a%'
+SELECT * FROM Student WHERE FIRST_NAME LIKE '_____a';       ---  five characters and ends with 'a'
+SELECT * FROM Student WHERE GPA BETWEEN 9.00 AND 9.99;
+
+
+
+SELECT Major, COUNT(*) as TOTAL_COUNT FROM Student WHERE MAJOR = 'Computer Science';
+
+SELECT MAJOR, COUNT(MAJOR) from Student group by MAJOR order by COUNT(MAJOR) DESC;
+
+
+
+SELECT 
+    Student.FIRST_NAME,
+    Student.LAST_NAME,
+    Scholarship.SCHOLARSHIP_AMOUNT,
+    Scholarship.SCHOLARSHIP_DATE
+FROM 
+    Student
+INNER JOIN 
+    Scholarship ON Student.STUDENT_ID = Scholarship.STUDENT_REF_ID;
+
+
+
+--- List all students and their scholarship amounts if they have received any. If a student has not received a scholarship, display NULL for the scholarship details.
+
+SELECT 
+    Student.FIRST_NAME,
+    Student.LAST_NAME,
+    Scholarship.SCHOLARSHIP_AMOUNT,
+    Scholarship.SCHOLARSHIP_DATE
+FROM 
+    Student
+LEFT JOIN 
+    Scholarship ON Student.STUDENT_ID = Scholarship.STUDENT_REF_ID;
+
+
+
+SELECT * from Student ORDER BY GPA DESC LIMIT 5;    --- top 5 records 
+
+SELECT * FROM Student ORDER BY GPA DESC LIMIT 5, 1;         --- determine the nth (say n=5) highest GPA from a table.
+                                                            --- LIMIT 5, 1 is saying: skip the first 5 rows and then return exactly 1 row after that.
+SELECT GPA                  ---- i think this is correct
+FROM Student 
+ORDER BY GPA DESC 
+LIMIT 1 OFFSET 4;
+
+
+
+--- Write an SQL query to fetch the list of Students with the same GPA.
+SELECT s1.* FROM Student s1, Student s2 WHERE s1.GPA = s2.GPA AND s1.Student_id != s2.Student_id;
+-- using explicit self join
+SELECT s1.* 
+FROM Student s1
+JOIN Student s2 
+  ON s1.GPA = s2.GPA 
+  AND s1.Student_id != s2.Student_id;
+
+
+-- to list STUDENT_ID who does not get Scholarship.
+SELECT STUDENT_ID FROM Student 
+WHERE STUDENT_ID NOT IN (SELECT STUDENT_REF_ID FROM Scholarship);
+
+
+
+-- to fetch three max GPA from a table using co-related subquery.
+SELECT DISTINCT GPA FROM Student S1 
+WHERE 3 >= (SELECT COUNT(DISTINCT GPA) FROM Student S2 WHERE S1.GPA <= S2.GPA) ORDER BY S1.GPA DESC;
+
+
+-- to fetch MAJOR subjects along with the max GPA in each of these MAJOR subjects.
+SELECT MAJOR, MAX(GPA) as MAXGPA FROM Student GROUP BY MAJOR;
+
+
+
+-- to fetch the names of Students who has highest GPA.
+SELECT FIRST_NAME, GPA FROM Student WHERE GPA = (SELECT MAX(GPA) FROM Student);
+SELECT MAJOR, AVG(GPA) AS AVERAGE_GPA FROM Student GROUP BY MAJOR;      --- avg gpa 

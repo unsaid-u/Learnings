@@ -12,6 +12,16 @@
   - **Primary Index:** Automatically created on the primary key of a table. It ensures that each key is unique and helps in the fast retrieval of records based on the primary key.
   - **Secondary Index:** Created on non-primary key columns to speed up queries involving those columns.
 
+
+- B+ trees: Suitable for range queries, ordered access, and large datasets.
+- Hashing: Suitable for exact value lookups and quick random access.
+
+- PostgreSQL: Primarily uses B+ trees for most indexing tasks due to their versatility in handling both exact matches and range queries. Hash indexes are less common but useful for very specific equality operations.
+- MongoDB: Uses B+ trees for most indexing tasks, but also supports hashed indexes primarily for distributing data in sharded environments.
+In both databases, B+ trees are the default and most widely applicable index type, whereas hash indexes serve more niche purposes (exact lookups in PostgreSQL and sharding in MongoDB).
+
+____
+
 ### Types of Indexes
 
 1. **Single-Column Index:**
@@ -188,3 +198,7 @@ Index - data structures
 - Write Latency: For every write operation (inserts, updates, deletes), MongoDB must update all relevant indexes, which can introduce write latency.
 - Inefficient for High Cardinality Queries: If the indexed field has high cardinality (many distinct values), performance may degrade as MongoDB has to traverse a large index.
 - Single Field Index for Sharding: Only one index can be used as the shard key, limiting the flexibility of how data is partitioned across multiple nodes
+
+[good video on indexing - indexing for dumb developers](https://www.youtube.com/watch?v=lYh6LrSIDvY)
+
+![types of index](<../flow dialgrams/Screenshot 2024-09-10 at 8.40.13 AM.png>)

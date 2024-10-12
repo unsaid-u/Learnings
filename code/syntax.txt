@@ -1,0 +1,100 @@
+
+map, set , sort 
+arraylist
+        - java, python , js 
+
+
+
+js 
+
+// Array 1: Indices 0 to n-2
+const arr1 = arr.slice(0, arr.length - 1);
+
+// Array 2: Indices 1 to n-1
+const arr2 = arr.slice(1);
+
+sort - list.sort() 
+-> numbers.sort((a, b) => a - b);   // for sorting list of integers 
+
+// Sort first by the first element, then by the second element
+pairs.sort((a, b) => {
+  if (a[0] === b[0]) {
+    // If first elements are the same, sort by the second element
+     return a[1] - b[1];
+  }
+  return a[0] - b[0];
+});
+
+map 
+ - set(key, val)
+ - get(key)
+ - delete(key)
+ - clear()
+ - has(key)
+ - size    // property not a method
+
+set 
+    - add
+    - set.forEach(value => {
+        console.log(value); // 1, 2, 3
+    });
+    - delete(key)
+    - clear()
+    - has(key)
+    - size    // property not a method
+
+
+--------------------------------------------------
+
+java 
+Hashmap
+    - put(key,val)
+    - get(key) , getOrDefault
+    - containsKey
+    - remove(key)
+
+Arrays.sort(nums);
+
+set 
+    // Using HashSet
+Set<String> set = new HashSet<>();
+
+// Using LinkedHashSet (maintains insertion order)
+Set<String> linkedSet = new LinkedHashSet<>();
+
+// Using TreeSet (maintains sorted order)
+Set<String> treeSet = new TreeSet<>();
+
+- add(val)
+- remove(val)
+- contains(val)
+- size()
+- clear()
+- isEmpty()
+
+
+arraylist
+
+// Without specifying the type (uses type inference with Java 7+)
+ArrayList<String> list = new ArrayList<>();
+
+// Specifying the initial capacity (optional)
+ArrayList<String> listWithCapacity = new ArrayList<>(10);
+
+// Using the List interface (more flexible)
+List<String> list = new ArrayList<>();
+
+- add(val)
+- get(index)
+- remove(val) , remove(index)
+- contains 
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+-> Collections.sort(list);
+--------------------------------------------------
+
+
+python 

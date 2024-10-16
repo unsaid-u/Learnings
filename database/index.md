@@ -202,3 +202,10 @@ Index - data structures
 [good video on indexing - indexing for dumb developers](https://www.youtube.com/watch?v=lYh6LrSIDvY)
 
 ![types of index](<../flow dialgrams/Screenshot 2024-09-10 at 8.40.13 AM.png>)
+
+___
+
+[gaurav sen indexing - no sql](https://www.youtube.com/watch?v=mTNkqMDCasI&t=188s)
+
+- in noSQL, denormalizing in DB is preferred, obviiously it introduces data redundancy
+- now on top of it, we can create multi-col indexes for faster lookups 

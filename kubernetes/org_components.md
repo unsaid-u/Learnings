@@ -77,3 +77,8 @@ Here’s a list of key components typically involved in an organization’s infr
 #### Summary
 
 In summary, a Kubernetes and microservice infrastructure in an organization consists of multiple layers, from basic network components like VPCs, subnets, and security groups to the actual Kubernetes cluster running containerized applications and microservices, complemented by monitoring, storage, automation, and disaster recovery systems.
+
+___
+
+![alt text](<../flow dialgrams/kubernetes-overview.png>)
+![alt text](<../flow dialgrams/pods.png>)

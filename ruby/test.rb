@@ -128,3 +128,11 @@ class MyClass
   obj = MyClass.new(50)
   obj.display
   
+
+x = 23
+y = x 
+
+puts x , y
+
+x = 43
+puts x , y

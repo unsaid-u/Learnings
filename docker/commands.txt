@@ -1,0 +1,2 @@
+docker rm $(docker ps -a -q)  - remove all container
+docker stop $(docker ps -q)     - stop all containers

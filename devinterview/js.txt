@@ -1,0 +1,9 @@
+create a custom memoize function 
+like loadash.memoize
+
+- debounce
+- throttling
+- memoize 
+
+Define your own definitions to these methods 
+These are available in lodash 

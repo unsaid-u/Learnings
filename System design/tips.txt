@@ -1,0 +1,9 @@
+The typical system design question will start with a problem statement, a thing for you to design, and scale numbers to guide your design. 
+I've seen interviewers skip this last part but it's crucial – designing a system for 100 users is different than 1 billion.
+
+I like to guide candidates into a 4 stage approach:
+
+Design the data schema
+Design the API
+Design the data querying
+Design the hosted architecture

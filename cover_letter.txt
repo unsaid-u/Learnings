@@ -1,0 +1,25 @@
+Utkarsh Jain
+utkarsh0017@gmail.com
++91 8517847845
+
+
+Hiring Manager
+[Company Name]
+[Company Address]
+
+Dear Hiring Manager,
+
+I'm writing to express my interest in a [Fullstack Developer] role at [Company Name]. With hands-on experience building production-grade systems at scale, I’ve led and contributed to multiple projects—from building robust backend microservices to crafting intuitive frontend interfaces—all with a focus on performance, usability, and business impact.
+
+At GlamAR (Pixel Bin), I worked fullstack on a complete revamp of the AR platform console. I developed the frontend in React, implemented performant REST APIs, and designed new database schemas. I also took full ownership of delivering the GlamAR browser extension—from initial design to deployment—and introduced observability with New Relic and Sentry. One highlight was building a Kafka-queued Bulk Upload feature that streamlined product creation.
+
+At Fynd Platform, I served as the Directly Responsible Individual (DRI) for the Hogwarts microservice, an order-processing system integrated with external platforms. I led the design of third-party integrations, optimized latency through schema changes, and resolved critical production incidents as part of OnCall. I also improved test coverage across services and contributed to system reliability.
+
+Additionally, I worked on extensions for supply integrations, where I designed a new admin UI that improved user interaction by 30%, implemented payload transformation scripts, and played a key role in migrating legacy systems to v3—unlocking a new revenue stream for the company.
+
+What sets me apart is my balance of technical depth and product sense. I focus not just on delivering code, but on building tools and systems that solve real problems. I'm excited by the opportunity to work with a team where I can continue learning, contribute meaningfully, and grow alongside the product.
+
+Thank you for considering my application. I’d love the opportunity to discuss how my background could contribute to your team.
+
+Sincerely,
+Utkarsh Jain

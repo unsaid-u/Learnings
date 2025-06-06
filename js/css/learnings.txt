@@ -1,0 +1,57 @@
+
+"specificity wars"
+-- Calculation hierarchy (from highest to lowest): Inline styles > IDs > Classes, Attributes, Pseudo-classes > Elements, Pseudo-elements.
+
+
+Positions
+    static: Default positioning, element flows normally in the document.
+    relative: Positioned relative to its normal position. Still occupies its original space.
+    absolute: Positioned relative to its closest positioned ancestor (or the initial containing block if none). Removed from normal document flow.
+    fixed: Positioned relative to the viewport. Stays in the same position even when the page is scrolled. Removed from normal document flow.
+    sticky: Mix of relative and fixed. Behaves as relative until a certain scroll position is met, then becomes fixed.
+
+Stacking context 
+
+Stacking contexts are hierarchical: A new stacking context can be nested within another, and z-index comparisons are only made within the same context.
+Parent elements influence stacking: If a parent element creates a new stacking context, its child elements' z-index values are confined within that context.
+Understanding stacking contexts is crucial: Proper management of stacking contexts ensures that elements appear as intended, especially when dealing with overlays, modals, and complex layouts.
+
+
+Grid
+- i can add total of (n X n) elements (if i specify both rows and cols)
+- the elements inside a grid container will take up the entire space of the container
+- if you specify dimension to the children then there will be empty spaces
+
+   container properties : 
+            grid-template: [grid-template-rows] / [grid-template-columns]; (shorthand)
+            grid-template-columns: Defines the number and size of columns in your grid.
+            grid-template-rows: Defines the number and size of rows
+        Define grid-template-columns if you're laying items horizontally.
+        Define grid-template-rows if you're laying items vertically.
+
+   grid item properties - grid-row , grid-column, grid-area
+
+
+Critical Rendering Path
+1. Request 
+2. DOM 
+3. CSSOM
+4. Render Tree
+5. Layout
+6. Paint (Render)
+
+The sequence of steps a browser takes to render a web page.
+-> CSS is a render-blocking resource, meaning the browser must parse and construct the CSSOM (CSS Object Model) before it can render the page.
+Optimization: Inlining critical CSS, deferring non-critical CSS, minifying CSS, lazy loading images.
+
+
+Hoisting in js - only works in declaration (not initialisation)
+variables declared anywhere in the code moves to top
+if declared using 'var' are initialized with 'undefined', and not for let or const 
+
+function test(){
+    console.log(x)
+    let x;
+}
+test()  // ReferenceError: Cannot access 'x' before initialization
+in case of var returns 'undefined'

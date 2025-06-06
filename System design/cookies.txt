@@ -1,0 +1,40 @@
+What kind of data to store:
+
+Session IDs/Tokens: To maintain user sessions and authentication state.
+
+User Preferences: Small, simple preferences like theme, language choice.
+
+Tracking Information: For analytics (though less common now with stricter privacy regulations and alternatives).
+
+Shopping Cart Identifiers: Temporary identifiers for anonymous carts.
+
+How a user or attacker can modify the data stored:
+
+User: Users can inspect, modify, and delete cookies through their browser's developer tools (Application tab -> Cookies).
+
+Attacker:
+
+Cross-Site Scripting (XSS): If an attacker can inject malicious JavaScript into a web page, they can access and steal cookies (especially session cookies).
+
+Cross-Site Request Forgery (CSRF): While not directly modifying cookies, attackers can craft requests that exploit authenticated users' session cookies to perform actions without their consent.
+
+Man-in-the-Middle (MITM) Attacks: If cookies are not secured (e.g., not using HTTPS), an attacker can intercept and modify them.
+
+Security Side of Things:
+
+Vulnerability to XSS: The biggest concern is XSS, where stolen session cookies can lead to session hijacking.
+
+Mitigation: Use the HttpOnly flag when setting cookies. This prevents client-side JavaScript from accessing the cookie, greatly reducing the risk of XSS-based theft.
+
+Vulnerability to CSRF: Attackers can trick authenticated users into executing unwanted actions.
+
+Mitigation: Implement CSRF tokens (unique, unpredictable values sent with requests), check Referer headers, and use SameSite cookie attributes (Lax, Strict, None).
+
+Insecure Transmission: If not transmitted over HTTPS, cookies can be intercepted and read/modified.
+
+Mitigation: Always use the Secure flag, which ensures the cookie is only sent over HTTPS.
+
+Small Capacity: Due to their small size limit, cookies are not suitable for storing large amounts of data.
+
+Sent with Every Request: As cookies are sent with every HTTP request to the same domain, they can add overhead to network traffic, especially if many large cookies are present.
+

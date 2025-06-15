@@ -55,3 +55,6 @@ function test(){
 }
 test()  // ReferenceError: Cannot access 'x' before initialization
 in case of var returns 'undefined'
+
+
+## JavaScript in strict mode does not allow variables to be used if they are not declared.

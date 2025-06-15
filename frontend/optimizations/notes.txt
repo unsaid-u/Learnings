@@ -1,0 +1,114 @@
+Ordering of resource loading is important for maximizing perceived and actual performance. When a web page is loaded:
+
+    * The HTML is generally parsed first, in the order in which it appears on the page.
+    * Any found CSS is parsed to understand the styles that need to be applied to the page. During this time, linked assets such as images and web fonts start to be fetched.
+    * Any found JavaScript is parsed, evaluated, and run against the page. By default, this blocks parsing of the HTML that appears after the <script> elements where the JavaScript is encountered.
+    * Slightly later on, the browser works out how each HTML element should be styled, given the CSS applied to it.
+    * The styled result is then painted to the screen.
+
+Note: This is a very simplified account of what happens, but it does give you an idea.
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Does DOM Creation Happen on Every Scroll?
+    No. DOM creation (aka parsing and building the DOM tree from HTML) only happens once — during the initial page load.
+
+    What Happens During Scroll?
+    When you scroll:
+    The DOM is not rebuilt.
+    The browser just paints new visible portions of the already-parsed DOM.
+
+    If you’re using techniques like lazy loading, then:
+    Image/video elements may get loaded dynamically when they enter the viewport.
+    New content may be fetched/rendered if you implement infinite scroll.
+
+
+    | Action                    | Happens on Scroll                      |
+| ------------------------- | -------------------------------------- |
+| DOM re-parsing            | ❌ No                                   |
+| JavaScript execution      | ✅ If scroll event or observer is used  |
+| Lazy-loaded images/videos | ✅ If in view                           |
+| Repaint or reflow         | ✅ Possibly, if styles or layout change |
+| Critical rendering path   | ❌ Not re-triggered                     |
+
+
+Browsers optimize rendering — they don’t reprocess the entire page.
+
+Scrolling mostly triggers compositing, painting, or loading of deferred content (e.g. images).
+
+Tools like requestIdleCallback or IntersectionObserver let you load/render content without hurting scroll performance.
+
+- JS optimisation
+
+| Attribute                    | Loading Time         | Execution Time            | Impact on CRP/FCP                 |
+| ---------------------------- | -------------------- | ------------------------- | --------------------------------- |
+| `defer`                      | Parallel (early)     | After DOM is parsed       | Can delay FCP if heavy            |
+| `async`                      | Parallel             | As soon as it’s loaded    | Can interrupt parsing             |
+| `type="module"` + `import()` | Deferred/conditional | On demand (e.g. on route) | Best for lazy, non-critical logic |
+
+
+Split Critical and Non-Critical Code
+Use code splitting and lazy loading for large apps.
+
+Load only what’s needed for the initial view.
+
+✅ 3. Use async, defer, and type="module"
+Prevent scripts from blocking HTML parsing.
+
+Use:
+
+defer for scripts that depend on DOM.
+
+async for independent scripts.
+
+type="module" with import() for modern splitting.
+
+✅ 4. Preload Important Assets
+Use <link rel="preload"> to prioritize fonts, scripts, or hero images.
+
+Helps speed up First Contentful Paint (FCP).
+
+✅ 5. Defer Non-Critical JavaScript
+Postpone loading of analytics, UI enhancements, or modals.
+
+Dynamically import with import() only when needed.
+
+✅ 6. Break Up Long Tasks
+Avoid blocking the main thread with large JS blocks.
+
+Use setTimeout, requestIdleCallback, or Web Workers.
+
+✅ 7. Optimize Event Handling
+Throttle or debounce expensive handlers like scroll or resize.
+
+Avoid layout thrashing (measuring + mutating DOM repeatedly).
+
+✅ 8. Prefer CSS for Animation
+CSS transforms (translate, opacity) are GPU-accelerated.
+
+Avoid animating properties like top, left, or width in JS.
+
+🧠 TL;DR: Your Performance Toolkit
+✅ Lazy load modules, images, and non-critical JS
+
+✅ Use defer, async, and preload wisely
+
+✅ Break JS work into smaller chunks
+
+✅ Profile, measure, and then optimize
+
+
+
+
+>>>> Direct DOM manipulation can be slow, because the browser will have to reflow and repaint the page each time a change happens
+
+        How Frameworks Optimize This
+        Frameworks like React, Vue, and others:
+
+        Use a virtual DOM (an in-memory representation of the DOM).
+
+        Batch updates together.
+
+        Only apply the minimum set of actual changes to the real DOM.
+
+        So instead of 10 DOM updates → you get 1 efficient update.

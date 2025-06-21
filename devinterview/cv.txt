@@ -1,0 +1,11 @@
+GlamAR
+
+Worked fullstack in developing a new console for the Augmented Reality platform.
+Developed the frontend application in react, as a part of the complete revamp of the project
+Implemented and integrated RESTful APIs suites to support new features and improve UI performance.
+Designed new database schemas, wrote effective queries and transactions.
+Delivered GlamAR extension end to end, from design to development to deployment, with complete ownership.
+Developed a Bulk Upload feature for product creation, which included queueing using Kafka. 
+Integrated New Relic and Sentry to establish robust error monitoring and observability capabilities.
+Wrote and optimized comprehensive unit test cases, achieving 90% test coverage.
+Played a key role in development, including design discussions and solutioning to align with business requirements.

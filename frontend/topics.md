@@ -117,6 +117,7 @@ Tree shaking during build process
     - core web vitals
     - critical rendering path
     - service worker/ web worker
+    - CDNs
 
 * Security
     - CORS

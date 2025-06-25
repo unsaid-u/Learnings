@@ -1,0 +1,115 @@
+-> https://chatgpt.com/c/685ba06e-462c-8010-98b1-8cceb4985236
+Mid-senior frontend engineer requirments 
+
+Master Core JavaScript & Browser Fundamentals
+Modern JavaScript (ES6+)
+
+    let/const, arrow functions, destructuring, spread/rest
+
+    Classes, modules (import/export), async/await, Promises
+
+    TypeScript (optional but highly valued)
+
+    Generics, union/intersection types, type guards, declaration merging
+
+    Browser internals
+
+    Event loop & task/microtask queues
+
+    Reflow vs. repaint, painting pipeline
+
+    HTTP basics (caching, cookies, headers, CORS)
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
+Deep Dive into React
+Component patterns
+
+    Functional components + Hooks vs. class components
+
+    Custom hooks: when & how to extract logic
+
+    Context API vs. prop drilling
+
+State management
+
+    Local vs. global state
+
+    Redux Toolkit or Recoil/Zustand: API patterns, middleware (thunks/sagas)
+
+    Immutable updates and performance tips
+
+Rendering & performance
+
+    Reconciliation, keying lists, memoization (React.memo, useMemo, useCallback)
+
+    Code-splitting & lazy loading (React.lazy, Suspense)
+
+    Profiling with React DevTools
+
+Routing
+
+    React Router v6: nested routes, data loading patterns
+
+    Testing
+
+    Unit testing: Jest + React Testing Library (queries, mocking, async)
+
+    Integration/E2E: Cypress or Playwright basics
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------
+
+Advanced Frontend Topics
+Performance Optimization
+
+    Lighthouse metrics (TTI, FCP, LCP, CLS)
+
+    Webpack/Rollup/Babel tuning (tree-shaking, code splitting)
+
+    Image optimization (responsive images, lazy loading)
+
+Accessibility (a11y)
+
+    Semantic HTML, ARIA roles, keyboard navigation
+
+    Automated (axe) and manual auditing
+
+Security
+
+    XSS, CSRF mitigations, secure headers
+
+    Dependency auditing (npm audit, Snyk)
+
+    Progressive Web Apps (PWA)
+
+    Service workers, offline caching, manifest.json
+
+CI/CD & DevOps basics
+
+    Setting up GitHub Actions or similar pipelines for lint/test/build/deploy
+
+Dockerizing frontend apps
+
+------------------------------------------------------------------------------------------------------------------------------
+
+System Design & Architecture
+Component architecture
+
+    Atomic design, container/presenter patterns
+
+    Micro-frontend concepts
+
+    Module federation (Webpack 5) or iframe based
+
+Data flow & caching
+
+    GraphQL vs. REST trade-offs, SWR/React Query patterns
+
+Scalability considerations
+
+    CDN strategies, SSR/SSG (Next.js) vs. CSR
+

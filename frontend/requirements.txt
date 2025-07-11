@@ -32,6 +32,8 @@ Component patterns
 
     Context API vs. prop drilling
 
+    HOC patterns
+
 State management
 
     Local vs. global state

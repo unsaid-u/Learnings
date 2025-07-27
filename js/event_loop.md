@@ -142,3 +142,5 @@ Output: 1, 8, 3, 4, 6, 7, 2, 5
 **Starvation risk**: Too many microtasks can starve the task queue, potentially blocking UI updates or other important tasks.
 
 This priority system ensures that Promise chains and async/await operations complete quickly, while heavier operations like timers and DOM events are handled when the main thread is less busy.
+
+> https://www.builder.io/blog/visual-guide-to-nodejs-event-loop -- full in-detail overview of eventloop

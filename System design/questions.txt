@@ -1,3 +1,50 @@
+a. Core Concepts
+    Load Balancers (Types, L4/L7)
+
+    Databases (SQL vs NoSQL, CAP theorem, scaling, replication)
+
+    Caching (Redis, Memcached, cache strategies)
+
+    Message Queues (Kafka, RabbitMQ, SQS)
+
+    Consistency Patterns (Eventual, Strong, Read/Write Patterns)
+
+    Partitioning, Sharding, Replication
+
+    API Gateways, Rate Limiting
+
+    CDN, Edge Caching
+
+    Async Processing (worker pools, cron jobs)
+
+    Data Modeling (Indexing, Denormalization, Joins, etc.)
+
+    Monitoring & Alerting
+
+b. Scalability & Reliability
+    Horizontal vs Vertical scaling
+
+    Consistent hashing
+
+    Leader election, Heartbeats
+
+    Backpressure, Circuit breakers
+
+    Idempotency
+
+c. Design Patterns
+    Microservices vs Monolith
+
+    Pub/Sub
+
+    CQRS, Event Sourcing
+
+d. Non-functional Requirements
+    Security: Authentication/Authorization, OWASP basics
+
+    Observability: Logging, Monitoring, Tracing
+
+
 Bass itna hi, aur kuch nahi
 
 ➤ 𝗕𝗮𝘀𝗶𝗰𝘀 𝗼𝗳 𝗦𝘆𝘀𝘁𝗲𝗺 𝗗𝗲𝘀𝗶𝗴𝗻

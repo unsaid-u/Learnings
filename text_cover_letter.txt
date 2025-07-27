@@ -4,12 +4,12 @@ utkarsh0017@gmail.com
 
 
 Hiring Manager
-Publicis Sapient
+Bending Spoon
 
 
 Dear Hiring Manager,
 
-I'm writing to express my interest in a Senior Experience Engineer - NodeJs role at Publicis Sapient. With hands-on experience building production-grade systems at scale, I’ve led and contributed to multiple projects—from building robust backend microservices to crafting intuitive frontend interfaces—all with a focus on performance, usability, and business impact.
+I'm writing to express my interest in a Software Engineer  role at Bending Spoon. With hands-on experience building production-grade systems at scale, I’ve led and contributed to multiple projects—from building robust backend microservices to crafting intuitive frontend interfaces—all with a focus on performance, usability, and business impact.
 
 At GlamAR (Pixel Bin), I worked fullstack on a complete revamp of the AR platform console. I developed the frontend in React, implemented performant REST APIs, and designed new database schemas. I also took full ownership of delivering the GlamAR browser extension—from initial design to deployment—and introduced observability with New Relic and Sentry. One highlight was building a Kafka-queued Bulk Upload feature that streamlined product creation.
 

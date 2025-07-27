@@ -1,5 +1,12 @@
 I'll provide a response combining the best aspects of previous explanations and addressing potential issues:
 
+>>> So the Process is:
+>>> Header: JSON → Base64URL → part1
+>>> Payload: JSON → Base64URL → part2
+>>> Signature: ALGORITHM(part1 + "." + part2, secret) → Base64URL → part3
+>>> Final JWT: part1.part2.part3
+
+
 **JWT (JSON Web Token) Refresh Tokens Explained**
 
 In JWT-based authentication, refresh tokens play a crucial role in extending access tokens without requiring constant user logins. Here's a breakdown of the concepts:

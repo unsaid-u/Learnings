@@ -5,3 +5,8 @@ code custom hook for storing to local storage
 useRefs vs useState , where have you used useRef 
 semantic html
 hoisting
+
+
+event loop - entire architecture 
+questions on prioirty of tasks
+process.nextTick
